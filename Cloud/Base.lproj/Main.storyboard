@@ -33,12 +33,53 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="kkH-wa-upG">
                         <barButtonItem key="leftBarButtonItem" title="ADD" systemItem="add" id="Lgp-ag-YgL"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="K0d-CM-hAm"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="K0d-CM-hAm">
+                            <connections>
+                                <segue destination="uOX-vh-00e" kind="show" id="zKX-Hh-yY7"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yVB-0E-2gQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="948" y="-404"/>
+        </scene>
+        <!--Camera View Controller-->
+        <scene sceneID="G50-6Y-7oa">
+            <objects>
+                <viewController id="uOX-vh-00e" customClass="CameraViewController" customModule="Cloud" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vTH-Mc-QJj"/>
+                        <viewControllerLayoutGuide type="bottom" id="KcJ-eg-HxA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nr6-sw-cMG">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uHw-Xl-Eej">
+                                <rect key="frame" x="0.0" y="64" width="600" height="444"/>
+                                <animations/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UeH-fA-xeC">
+                                <rect key="frame" x="249" y="540" width="103" height="30"/>
+                                <animations/>
+                                <edgeInsets key="layoutMargins" top="230" left="230" bottom="8" right="8"/>
+                                <state key="normal" title="Record a video"/>
+                                <connections>
+                                    <action selector="recordVideo:" destination="uOX-vh-00e" eventType="touchUpInside" id="3vE-Sz-VFt"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="uHw-Xl-Eej" id="E93-bj-mG4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T1p-Z2-8ma" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1662" y="-404"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="HEj-eW-OxB">
