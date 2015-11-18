@@ -47,7 +47,34 @@ class CameraViewController: UIViewController, UINavigationControllerDelegate, UI
         presentViewController(cameraController, animated: true, completion: nil)
         return true
     }
- 
-  
     
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        let mediaType = info[UIImagePickerControllerMediaType] as! NSString
+        dismissViewControllerAnimated(true, completion: nil)
+        // Handle a movie capture
+        if mediaType == kUTTypeMovie {
+            let path = (info[UIImagePickerControllerMediaURL] as! NSURL).path
+            if UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(path!) {
+                UISaveVideoAtPathToSavedPhotosAlbum(path!, self, "video:didFinishSavingWithError:contextInfo:", nil)
+            }
+        }
+    }
+    
+    func video(videoPath: NSString, didFinishSavingWithError error: NSError?, contextInfo info: AnyObject) {
+        var title = "Success"
+        var message = "Video was saved"
+        
+        if let _ = error {
+            title = "Error"
+            message = "Video failed to save"
+        }
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: nil))
+        presentViewController(alert, animated: true, completion: nil)
+    }
+    
+
 }
+
+
