@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		730810BC1BFBFFAC007E8098 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730810BB1BFBFFAC007E8098 /* CameraViewController.swift */; };
 		73328E561BFAF16C007C30EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73328E551BFAF16C007C30EC /* AppDelegate.swift */; };
 		73328E581BFAF16C007C30EC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73328E571BFAF16C007C30EC /* ViewController.swift */; };
 		73328E5B1BFAF16C007C30EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73328E591BFAF16C007C30EC /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		730810BB1BFBFFAC007E8098 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		73328E521BFAF16C007C30EC /* Cloud.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cloud.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73328E551BFAF16C007C30EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		73328E571BFAF16C007C30EC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +58,7 @@
 			children = (
 				73328E551BFAF16C007C30EC /* AppDelegate.swift */,
 				73328E571BFAF16C007C30EC /* ViewController.swift */,
+				730810BB1BFBFFAC007E8098 /* CameraViewController.swift */,
 				73328E591BFAF16C007C30EC /* Main.storyboard */,
 				73328E5C1BFAF16C007C30EC /* Assets.xcassets */,
 				73328E5E1BFAF16C007C30EC /* LaunchScreen.storyboard */,
@@ -96,6 +99,7 @@
 				TargetAttributes = {
 					73328E511BFAF16C007C30EC = {
 						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = 2AXAAUP73J;
 					};
 				};
 			};
@@ -137,6 +141,7 @@
 			files = (
 				73328E581BFAF16C007C30EC /* ViewController.swift in Sources */,
 				73328E561BFAF16C007C30EC /* AppDelegate.swift in Sources */,
+				730810BC1BFBFFAC007E8098 /* CameraViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,10 +252,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Cloud/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Cloud;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xiaohedong;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -258,10 +266,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Cloud/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Cloud;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xiaohedong;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -284,6 +295,7 @@
 				73328E661BFAF16C007C30EC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
