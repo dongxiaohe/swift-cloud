@@ -5,17 +5,17 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Listings-->
         <scene sceneID="msV-ym-4J8">
             <objects>
-                <tableViewController id="iB4-GS-xmV" customClass="ViewController" customModule="Cloud" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="iB4-GS-xmV" customClass="ListingViewController" customModule="Cloud" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="qmS-tW-9Hm">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FruitCell" id="e6u-IW-nUF">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="listingCell" id="e6u-IW-nUF">
                                 <rect key="frame" x="0.0" y="113.5" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="e6u-IW-nUF" id="wDI-SY-59V">
@@ -31,18 +31,55 @@
                             <outlet property="delegate" destination="iB4-GS-xmV" id="MjD-7J-HgA"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="kkH-wa-upG">
-                        <barButtonItem key="leftBarButtonItem" title="ADD" systemItem="add" id="Lgp-ag-YgL"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="K0d-CM-hAm">
-                            <connections>
-                                <segue destination="uOX-vh-00e" kind="show" id="zKX-Hh-yY7"/>
-                            </connections>
-                        </barButtonItem>
+                    <navigationItem key="navigationItem" title="Listings" id="kkH-wa-upG">
+                        <barButtonItem key="leftBarButtonItem" systemItem="bookmarks" id="Grj-yD-Zb7"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="l4i-Di-jAG"/>
                     </navigationItem>
+                    <connections>
+                        <segue destination="qyh-4j-aj3" kind="show" identifier="listingToVideo" id="Bmi-ol-9d9"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yVB-0E-2gQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="948" y="-404"/>
+        </scene>
+        <!--Videos-->
+        <scene sceneID="KR8-0r-0Si">
+            <objects>
+                <tableViewController storyboardIdentifier="videos" id="qyh-4j-aj3" customClass="VideoViewController" customModule="Cloud" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="fJj-t1-XyN">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="videosCell" id="ozD-Ta-4Hm">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ozD-Ta-4Hm" id="Lyd-QV-PQg">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <animations/>
+                                </tableViewCellContentView>
+                                <animations/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="qyh-4j-aj3" id="21i-ju-0xJ"/>
+                            <outlet property="delegate" destination="qyh-4j-aj3" id="07w-Kz-feh"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Videos" id="Z6h-uS-Egn">
+                        <barButtonItem key="rightBarButtonItem" title="Camera" systemItem="camera" id="nwd-6M-RDt">
+                            <connections>
+                                <segue destination="uOX-vh-00e" kind="show" id="8yb-2c-aFT"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bHI-KJ-uDu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1824" y="-404"/>
         </scene>
         <!--Camera View Controller-->
         <scene sceneID="G50-6Y-7oa">
@@ -57,16 +94,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uHw-Xl-Eej">
-                                <rect key="frame" x="0.0" y="64" width="600" height="444"/>
+                                <rect key="frame" x="0.0" y="92" width="600" height="444"/>
                                 <animations/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UeH-fA-xeC">
-                                <rect key="frame" x="249" y="540" width="103" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YuQ-dI-N07">
+                                <rect key="frame" x="259" y="550" width="83" height="30"/>
                                 <animations/>
-                                <edgeInsets key="layoutMargins" top="230" left="230" bottom="8" right="8"/>
-                                <state key="normal" title="Record a video"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="83" id="bdu-NM-9TO"/>
+                                </constraints>
+                                <state key="normal" title="Start record"/>
                                 <connections>
-                                    <action selector="recordVideo:" destination="uOX-vh-00e" eventType="touchUpInside" id="3vE-Sz-VFt"/>
+                                    <action selector="recordVideo:" destination="uOX-vh-00e" eventType="touchUpInside" id="iyr-Jx-2wR"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -79,7 +118,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T1p-Z2-8ma" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1662" y="-404"/>
+            <point key="canvasLocation" x="2639" y="-404"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="HEj-eW-OxB">
