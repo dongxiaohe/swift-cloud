@@ -19,7 +19,7 @@
 
 /* Begin PBXFileReference section */
 		730810BB1BFBFFAC007E8098 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
-		730810BE1BFC21D5007E8098 /* ListingVideos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListingVideos.swift; path = ../ListingVideos.swift; sourceTree = "<group>"; };
+		730810BE1BFC21D5007E8098 /* ListingVideos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListingVideos.swift; sourceTree = "<group>"; };
 		730810C01BFC30FB007E8098 /* VideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		73328E521BFAF16C007C30EC /* Cloud.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cloud.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73328E551BFAF16C007C30EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -44,6 +44,7 @@
 		730810BD1BFC2144007E8098 /* data */ = {
 			isa = PBXGroup;
 			children = (
+				730810BE1BFC21D5007E8098 /* ListingVideos.swift */,
 			);
 			name = data;
 			sourceTree = "<group>";
@@ -68,7 +69,6 @@
 		73328E541BFAF16C007C30EC /* Cloud */ = {
 			isa = PBXGroup;
 			children = (
-				730810BE1BFC21D5007E8098 /* ListingVideos.swift */,
 				73328E551BFAF16C007C30EC /* AppDelegate.swift */,
 				73328E571BFAF16C007C30EC /* ListingViewController.swift */,
 				730810C01BFC30FB007E8098 /* VideoViewController.swift */,

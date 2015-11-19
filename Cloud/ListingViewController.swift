@@ -9,11 +9,12 @@
 import UIKit
 
 
-var listingVideos: ListingVideos!
 
 class ListingViewController: UITableViewController {
-
-    let listingsVideos = ListingViewController.populateListings()
+    
+    var listingVideos: [String]?
+    
+    var listingsVideos = ListingViewController.populateListings()
     
     static func populateListings() -> [ListingVideos] {
         return [
@@ -39,7 +40,7 @@ class ListingViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        listingVideos = listingsVideos[tableView.indexPathForSelectedRow!.row]
+        listingVideos = listingsVideos[tableView.indexPathForSelectedRow!.row].videos
         performSegueWithIdentifier("listingToVideo", sender: self)
     }
     
@@ -47,9 +48,18 @@ class ListingViewController: UITableViewController {
         
         if (segue.identifier == "listingToVideo") {
             let viewController = segue.destinationViewController as! VideoViewController
-            viewController.listingVideos = listingVideos
+            if let unwrappedListingVideos = listingVideos {
+                viewController.listingVideos = unwrappedListingVideos
+            }
         }
         
+    }
+    
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            listingsVideos.removeAtIndex(indexPath.row)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        }
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

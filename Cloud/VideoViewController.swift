@@ -10,7 +10,7 @@ import UIKit
 
 class VideoViewController: UITableViewController {
 
-    var listingVideos: ListingVideos?
+    var listingVideos: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,14 +23,21 @@ class VideoViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return listingVideos!.videos.count
+        return listingVideos.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("videosCell", forIndexPath: indexPath)
-        cell.textLabel?.text = listingVideos!.videos[indexPath.row]
+        cell.textLabel?.text = listingVideos[indexPath.row]
         
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            listingVideos.removeAtIndex(indexPath.row)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        }
     }
     
 }

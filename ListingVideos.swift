@@ -6,9 +6,8 @@
 //  Copyright © 2015 Danny Dong. All rights reserved.
 //
 
-import Foundation
 
-class ListingVideos: NSObject {
+class ListingVideos {
 
     let listingId: String
     let listingName: String

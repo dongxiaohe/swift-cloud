@@ -17,6 +17,8 @@ class CameraViewController: UIViewController, UINavigationControllerDelegate, UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        startMediaBrowserFromViewController(self, usingDelegate: self)
 
         // Do any additional setup after loading the view.
     }
@@ -31,6 +33,31 @@ class CameraViewController: UIViewController, UINavigationControllerDelegate, UI
         
         startCameraFromViewController(self, withDelegate: self)
         
+    }
+    
+//    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+//        
+//        print("cancel the image")
+//        
+//        
+//    }
+    
+    func startMediaBrowserFromViewController(viewController: UIViewController, usingDelegate delegate: protocol<UINavigationControllerDelegate, UIImagePickerControllerDelegate>) -> Bool {
+        // 1
+        if UIImagePickerController.isSourceTypeAvailable(.SavedPhotosAlbum) == false {
+            return false
+        }
+        
+        // 2
+        let mediaUI = UIImagePickerController()
+        mediaUI.sourceType = .SavedPhotosAlbum
+        mediaUI.mediaTypes = [kUTTypeMovie as NSString as String]
+        mediaUI.allowsEditing = true
+        mediaUI.delegate = delegate
+        
+        // 3
+        presentViewController(mediaUI, animated: true, completion: nil)
+        return true
     }
     
     private func startCameraFromViewController(viewController: UIViewController, withDelegate delegate: protocol<UIImagePickerControllerDelegate, UINavigationControllerDelegate>) -> Bool {

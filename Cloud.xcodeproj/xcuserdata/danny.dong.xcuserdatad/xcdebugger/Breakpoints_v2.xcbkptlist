@@ -73,11 +73,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Cloud/CameraViewController.swift"
-            timestampString = "469506605.495273"
+            timestampString = "469590059.034506"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
             landmarkName = "video(_:didFinishSavingWithError:contextInfo:)"
             landmarkType = "5">
          </BreakpointContent>
